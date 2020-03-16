@@ -1,8 +1,8 @@
-public class AreaStringOutputter {
+public class AreaStringOutputter{
 
-    private AreaAggregator area;
+    SumProvider area;
 
-    public AreaStringOutputter(AreaAggregator area) {
+    public AreaStringOutputter(SumProvider area){
         this.area = area;
     }
 

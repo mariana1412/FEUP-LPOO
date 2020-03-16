@@ -1,8 +1,8 @@
-public class AreaXMLOutputter {
+public class AreaXMLOutputter{
 
-    private AreaAggregator area;
+    private SumProvider area;
 
-    public AreaXMLOutputter(AreaAggregator area) {
+    public AreaXMLOutputter(SumProvider area) {
 
         this.area = area;
     }
