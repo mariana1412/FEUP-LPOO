@@ -24,21 +24,85 @@ public class Turtle {
     }
 
     public void execute(char command) {
-        if (command == 'L') { // ROTATE LEFT
-            if (direction == 'N') direction = 'W';
-            else if (direction == 'W') direction = 'S';
-            else if (direction == 'S') direction = 'E';
-            else if (direction == 'E') direction = 'N';
-        } else if (command == 'R') { // ROTATE RIGHT
-            if (direction == 'N') direction = 'E';
-            else if (direction == 'E') direction = 'S';
-            else if (direction == 'S') direction = 'W';
-            else if (direction == 'W') direction = 'N';
-        } else if (command == 'F'){ // MOVE FORWARD
-            if (direction == 'N') row--;
-            if (direction == 'S') row++;
-            if (direction == 'W') column--;
-            if (direction == 'E') column++;
+
+        switch(command){
+            case 'L':
+                rotateLeft();
+                break;
+            case 'R':
+                rotateRight();
+                break;
+            case 'F':
+                moveForward();
+                break;
         }
     }
+
+    public void rotateLeft() {
+        switch(direction){
+            case 'N':
+                direction = 'W';
+                break;
+            case 'W':
+                direction = 'S';
+                break;
+            case 'S':
+                direction = 'E';
+                break;
+            case 'E':
+                direction = 'N';
+                break;
+        }
+    }
+
+    public void rotateRight() {
+        switch(direction){
+            case 'N':
+                direction = 'E';
+                break;
+            case 'E':
+                direction = 'S';
+                break;
+            case 'S':
+                direction = 'W';
+                break;
+            case 'W':
+                direction = 'N';
+                break;
+        }
+    }
+
+    public void moveForward() {
+        switch(direction){
+            case 'N':
+                moveUp();
+                break;
+            case 'S':
+                moveDown();
+                break;
+            case 'W':
+                moveLeft();
+                break;
+            case 'E':
+                moveRight();
+                break;
+        }
+    }
+
+    public void moveUp(){
+        this.row--;
+    }
+
+    public void moveDown(){
+        this.row++;
+    }
+
+    public void moveLeft(){
+        this.column--;
+    }
+
+    public void moveRight(){
+        this.column++;
+    }
+
 }

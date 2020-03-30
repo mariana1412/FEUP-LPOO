@@ -3,7 +3,7 @@ package com.aor.refactoring.example4;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Supervisor extends Worker {
+public class Supervisor extends  Worker {
     Set<Worker> supervisee;
     
     public Supervisor(String name, String phone, String username, String password) {
