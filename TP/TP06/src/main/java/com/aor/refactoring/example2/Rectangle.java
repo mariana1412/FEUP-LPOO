@@ -1,6 +1,6 @@
 package com.aor.refactoring.example2;
 
-public class Rectangle extends Shape {
+public class Rectangle extends Shape{
 
     private double width;
     private double height;
@@ -11,20 +11,21 @@ public class Rectangle extends Shape {
         this.height = height;
     }
 
-    public double getArea() {
+    @Override
+    public double getArea(){
         return width * height;
     }
 
+    @Override
     public double getPerimeter(){
         return 2 * (width + height);
     }
 
-    public void draw(GraphicFramework graphics){
-        graphics.drawLine(x, y, x + width, y);
-        graphics.drawLine(x + width, y, x + width, y + height);
-        graphics.drawLine(x + width, y + height, x, y + height);
-        graphics.drawLine(x, y + height, x, y);
+    @Override
+    public void draw(GraphicFramework graphics) {
+            graphics.drawLine(getX(), getY(), getX() + width, getY());
+            graphics.drawLine(getX() + width, getY(), getX() + width, getY() + height);
+            graphics.drawLine(getX() + width, getY() + height, getX(), getY() + height);
+            graphics.drawLine(getX(), getY() + height, getX(), getY());
     }
-
-
 }

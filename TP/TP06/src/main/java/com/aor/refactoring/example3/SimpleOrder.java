@@ -6,7 +6,7 @@ public class SimpleOrder {
 
     public SimpleOrder(double price) {
         this.price = price;
-        this.discount = new NullDiscount();
+        this.discount = new NoDiscount();
     }
 
     public void setDiscount(Discount discount) {

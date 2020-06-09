@@ -2,7 +2,7 @@ package com.aor.refactoring.example4;
 
 import java.util.Objects;
 
-public class Worker extends Person {
+public class Worker extends Person{
 
     private final String username;
     private final String password;
@@ -17,25 +17,17 @@ public class Worker extends Person {
         return this.username.equals(username) && this.password.equals(password);
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-
-        if (o == null || getClass() != o.getClass()) return false;
-
+        if (!(o instanceof Worker)) return false;
         Worker worker = (Worker) o;
-
-        boolean sameName = username.equals(worker.username);
-        boolean samePhone = username.equals(worker.phone);
-        boolean sameUsername = this.username.equals(worker.username);
-        boolean samePassword = this.password.equals(worker.password);
-
-        return sameName && samePhone && sameUsername && samePassword;
+        return Objects.equals(username, worker.username) &&
+                Objects.equals(password, worker.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, phone, username, password);
+        return Objects.hash(username, password);
     }
 }

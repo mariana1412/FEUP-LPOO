@@ -3,12 +3,12 @@ package com.aor.refactoring.example5;
 public class Turtle {
     private int row;
     private int column;
-    private char direction;
+    private TurtleDirection direction;
 
     public Turtle(int row, int column, char direction) {
         this.row = row;
         this.column = column;
-        this.direction = direction;
+        this.direction = new TurtleDirection(direction);
     }
 
     public int getRow() {
@@ -20,89 +20,21 @@ public class Turtle {
     }
 
     public char getDirection() {
-        return direction;
+        return direction.getType();
     }
 
-    public void execute(char command) {
-
-        switch(command){
-            case 'L':
-                rotateLeft();
-                break;
-            case 'R':
-                rotateRight();
-                break;
-            case 'F':
-                moveForward();
-                break;
-        }
-    }
-
-    public void rotateLeft() {
-        switch(direction){
-            case 'N':
-                direction = 'W';
-                break;
-            case 'W':
-                direction = 'S';
-                break;
-            case 'S':
-                direction = 'E';
-                break;
-            case 'E':
-                direction = 'N';
-                break;
-        }
-    }
-
-    public void rotateRight() {
-        switch(direction){
-            case 'N':
-                direction = 'E';
-                break;
-            case 'E':
-                direction = 'S';
-                break;
-            case 'S':
-                direction = 'W';
-                break;
-            case 'W':
-                direction = 'N';
-                break;
-        }
+    public void execute(TurtleCommand command) {
+        if (command.getType() == 'L') direction.rotateLeft();
+        else if (command.getType() == 'R') direction.rotateRight();
+        else if (command.getType() == 'F') moveForward();
     }
 
     public void moveForward() {
-        switch(direction){
-            case 'N':
-                moveUp();
-                break;
-            case 'S':
-                moveDown();
-                break;
-            case 'W':
-                moveLeft();
-                break;
-            case 'E':
-                moveRight();
-                break;
-        }
+        if (getDirection() == 'N') row--;
+        if (getDirection() == 'S') row++;
+        if (getDirection() == 'W') column--;
+        if (getDirection() == 'E') column++;
     }
 
-    public void moveUp(){
-        this.row--;
-    }
-
-    public void moveDown(){
-        this.row++;
-    }
-
-    public void moveLeft(){
-        this.column--;
-    }
-
-    public void moveRight(){
-        this.column++;
-    }
 
 }

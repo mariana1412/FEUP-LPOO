@@ -1,29 +1,31 @@
 package com.aor.refactoring.example6;
 
 public class Location {
-    private String locationLatitude;
-    private String locationLongitude;
-    private String locationName;
 
-    public Location(String locationLatitude, String locationLongitude, String locationName) {
-        this.locationLatitude = locationLatitude;
-        this.locationLongitude = locationLongitude;
-        this.locationName = locationName;
+    private String latitude;
+    private String longitude;
+    private String name;
+
+    public Location(String latitude, String longitude, String name) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.name = name;
     }
 
-    public String toString(){
-        return this.locationLatitude + "," + this.locationLongitude + " (" + this.locationName + ")";
+    public String getLatitude() {
+        return latitude;
     }
 
-    public String getLocationLatitude() {
-        return locationLatitude;
+    public String getLongitude() {
+        return longitude;
     }
 
-    public String getLocationLongitude() {
-        return locationLongitude;
+    public String getName() {
+        return name;
     }
 
-    public String getLocationName() {
-        return locationName;
+    @Override
+    public String toString() {
+        return this.latitude + "," + this.longitude + " (" + this.name;
     }
 }

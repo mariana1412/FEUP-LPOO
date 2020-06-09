@@ -1,9 +1,11 @@
 package com.aor.refactoring.example4;
 
+import java.util.Objects;
+
 public abstract class Person {
 
-    protected final String name;
-    protected final String phone;
+    private final String name;
+    private final String phone;
 
     public Person(String name, String phone) {
         this.name = name;
@@ -16,5 +18,19 @@ public abstract class Person {
 
     public String getPhone() {
         return phone;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
+        Person person = (Person) o;
+        return Objects.equals(name, person.name) &&
+                Objects.equals(phone, person.phone);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, phone);
     }
 }

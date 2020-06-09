@@ -35,4 +35,5 @@ public class OrderTest {
                         "Red Dead Redemption 2(x1): 50.0\n" +
                         "Total: 850.0", printed);
     }
+
 }

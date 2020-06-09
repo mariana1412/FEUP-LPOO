@@ -14,25 +14,27 @@ public class Order {
         lines.add(new OrderLine(product, quantity));
     }
 
-    public boolean isElegibleForFreeDelivery() {
+    public double calculateTotal(){
         double total = 0;
 
         for (OrderLine line : lines)
-            total += line.getTotal();
+            total += line.calculateTotal();
 
+        return total;
+    }
 
-        return (total > 100);
+    public boolean isElegibleForFreeDelivery() {
+        if (calculateTotal() > 100) return true;
+        else return false;
     }
 
     public String printOrder() {
         StringBuffer printBuffer = new StringBuffer();
-        double total = 0;
 
+        for (OrderLine line : lines)
+            printBuffer.append(line);
 
-        for (OrderLine line : lines){
-            printBuffer.append(line.printOrderLine());
-            total += line.getTotal();
-        }
+        double total = calculateTotal();
 
         printBuffer.append("Total: " + total);
 

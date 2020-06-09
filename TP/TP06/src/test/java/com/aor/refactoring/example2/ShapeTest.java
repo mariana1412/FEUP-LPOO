@@ -9,7 +9,7 @@ public class ShapeTest {
 
     @Test
     public void getAreaCircle() throws Exception {
-        Shape circle = new Circle(5, 5, 10);
+            Shape circle = new Circle(5, 5, 10);
         assertEquals(314.16, circle.getArea(), 0.01);
     }
 

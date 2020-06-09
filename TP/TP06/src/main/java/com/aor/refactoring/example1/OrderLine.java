@@ -9,12 +9,20 @@ public class OrderLine {
         this.quantity = quantity;
     }
 
-
-    public String printOrderLine() {
-        return product.getName() + "(x" + quantity + "): " + (product.getPrice() * quantity) + "\n";
+    public Product getProduct() {
+        return product;
     }
 
-    public double getTotal() {
-        return product.getPrice() * quantity;
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public double calculateTotal(){
+        return quantity*product.getPrice();
+    }
+
+    @Override
+    public String toString() {
+        return product.getName() + "(x" + quantity + "): " + calculateTotal() + "\n";
     }
 }
